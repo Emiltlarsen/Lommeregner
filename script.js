@@ -1,5 +1,3 @@
-
-
 function plus(){
     var a = parseInt(document.getElementById("talInput1").value);
     var b = parseInt(document.getElementById("talInput2").value);
