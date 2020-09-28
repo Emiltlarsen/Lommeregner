@@ -130,15 +130,19 @@ function ligMed(){
     console.log("Resultat er...")
     if (valgteOperator === "+") {
         talIBjaelken = parseInt(talIBjaelken) + parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "-") {
         talIBjaelken = parseInt(talIBjaelken) - parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "*") {
         talIBjaelken = parseInt(talIBjaelken) * parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "/") {
         talIBjaelken = parseInt(talIBjaelken) / parseInt(laastTal)
+        console.log(talIBjaelken)
     }
     else if (valgteOperator === "x^y"){
         var resultat = parseInt(laastTal);
@@ -148,6 +152,8 @@ function ligMed(){
         }
     
         talIBjaelken = resultat;
+        
+        console.log(talIBjaelken)
     }
 // implementer noget til at slette når du skriver nye tal ind efter du har regnet noget
 }
