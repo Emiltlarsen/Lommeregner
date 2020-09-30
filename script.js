@@ -206,15 +206,19 @@ function ligMed(){
     console.log("Resultat er...")
     if (valgteOperator === "+") {
         talIBjaelken = parseInt(talIBjaelken) + parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "-") {
         talIBjaelken = parseInt(talIBjaelken) - parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "*") {
         talIBjaelken = parseInt(talIBjaelken) * parseInt(laastTal)
+        console.log(talIBjaelken)
     } 
     else if (valgteOperator === "/") {
         talIBjaelken = parseInt(talIBjaelken) / parseInt(laastTal)
+        console.log(talIBjaelken)
     }
     else if (valgteOperator === "x^y"){
         var resultat = parseInt(laastTal);
@@ -224,6 +228,8 @@ function ligMed(){
         }
     
         talIBjaelken = resultat;
+        
+        console.log(talIBjaelken)
     }
 
     ligeRegnet = 1
