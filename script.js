@@ -2,86 +2,153 @@ var talIBjaelken = "0";
 var valgteOperator = "";
 var laastTal = "";
 var pi = 3.1415926535897932384626433832795;
+var ligeRegnet = 0
 
 
 function tast1(){
     console.log("Taster 1")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "1"
+        talIBjaelken = "1";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "1"
+        talIBjaelken = talIBjaelken + "1";
+        ligeRegnet = 0;
 }
 function tast2(){
     console.log("Taster 2")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "2"
+        talIBjaelken = "2";
+        ligeRegnet = 0;
     } else
         talIBjaelken = talIBjaelken + "2"
+        ligeRegnet = 0;
 }
 function tast3(){
     console.log("Taster 3")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "3"
+        talIBjaelken = "3";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "3"
+        talIBjaelken = talIBjaelken + "3";
+        ligeRegnet = 0;
 }
 function tast4(){
     console.log("Taster 4")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "4"
+        talIBjaelken = "4";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "4"
+        talIBjaelken = talIBjaelken + "4";
+        ligeRegnet = 0;
 }
 function tast5(){
     console.log("Taster 5")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "5"
+        talIBjaelken = "5",
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "5"
+        talIBjaelken = talIBjaelken + "5";
+        ligeRegnet = 0;
 }
 function tast6(){
     console.log("Taster 6")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "6"
+        talIBjaelken = "6";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "6"
+        talIBjaelken = talIBjaelken + "6";
+        ligeRegnet = 0;
 }
 function tast7(){
     console.log("Taster 7")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "7"
+        talIBjaelken = "7";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "7"
+        talIBjaelken = talIBjaelken + "7";
+        ligeRegnet = 0;
 }
 function tast8(){
     console.log("Taster 8")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "8"
+        talIBjaelken = "8";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "8"
+        talIBjaelken = talIBjaelken + "8";
+        ligeRegnet = 0;
 }
 function tast9(){
     console.log("Taster 9")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "9"
+        talIBjaelken = "9";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "9"
+        talIBjaelken = talIBjaelken + "9";
+        ligeRegnet = 0;
 }
 function tast0(){
     console.log("Taster 0")
+    if (ligeRegnet === 1){
+        talIBjaelken = "0";
+    }
+
     if(talIBjaelken === pi || talIBjaelken === "0"){
-        talIBjaelken = "0"
+        talIBjaelken = "0";
+        ligeRegnet = 0;
     } else
-        talIBjaelken = talIBjaelken + "0"
+        talIBjaelken = talIBjaelken + "0";
+        ligeRegnet = 0;
 }
 function tastpi(){
-    talIBjaelken = pi
-    console.log("Taster Pi")
+    talIBjaelken = pi;
+    console.log("Taster Pi");
+    ligeRegnet = 0;
 }
 
 function C(){
     talIBjaelken = "0"
     console.log("Sletter...")
+    ligeRegnet = 0;
 }
 
 function plus(){
@@ -123,6 +190,15 @@ function kvadratRod(){
     talIBjaelken = Math.sqrt(parseInt(talIBjaelken))
     console.log("Tager kvadratroden...")
 }
+function plusMinus(){
+    if (talIBjaelken === 0) {
+        console.log("Ændrer ikke fortegn på grun af 0")
+    }
+    else if (talIBjaelken != 0) {
+        talIBjaelken *= -1
+        console.log("Ændrer fortegn")
+    }
+}
 
 
 
@@ -149,5 +225,6 @@ function ligMed(){
     
         talIBjaelken = resultat;
     }
-// implementer noget til at slette når du skriver nye tal ind efter du har regnet noget
+
+    ligeRegnet = 1
 }
