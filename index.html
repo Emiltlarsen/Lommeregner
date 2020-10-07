@@ -6,12 +6,15 @@
     <title>Lommeregner</title>
     <script>
         var resultatelement = document.createElement("resultater");
+        var resultatelement = document.createElement("miniTal");
     </script>
     
-    <p id="resultater"></p>
+    <h5 id="miniTal"></h5>
+    <h2 id="resultater"></h2>
 
     <script>
         document.getElementById("resultater").innerHTML = "0"
+        document.getElementById("miniTal").innerHTML = "..."
     </script>
 
 </head>
@@ -30,6 +33,7 @@
 <br>
     <button onclick="tastpi()">π</button>    
     <button onclick="tast0()">0</button>
+    <button onclick="komma()">,</button>
     <button onclick="plusMinus()">+/-</button>
 <br>
 <br>
@@ -42,6 +46,7 @@
     <button onclick="kvadratRod()">Kvadratrod</button>
     <button onclick="ligMed()">=</button>
     <button onclick="C()">C</button>
+    <button onclick="CE()">CE</button>
 
 
     <script src="script.js"></script>
