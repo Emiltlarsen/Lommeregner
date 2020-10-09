@@ -7,6 +7,7 @@
     <script>
         var resultatelement = document.createElement("resultater");
         var resultatelement = document.createElement("miniTal");
+        var resultatelement = document.createElement("historik");
     </script>
     
     <h5 id="miniTal"></h5>
@@ -33,7 +34,7 @@
 <br>
     <button onclick="tastpi()">π</button>    
     <button onclick="tast0()">0</button>
-    <button onclick="komma()">,</button>
+    <button onclick="komma()">.</button>
     <button onclick="plusMinus()">+/-</button>
 <br>
 <br>
@@ -51,5 +52,16 @@
 
     <script src="script.js"></script>
     
+<br>
+<br>
+    <p id="historik"></p>
+    <script>
+        document.getElementById("historik").innerHTML = "/Historik Af Tidligere Beregninger Skrives Her/";
+    </script>
+<br>
+
+<body>
+    <button onclick="nulstilHistorik()">Nulstil Lommeregner</button>
+</body>
 </body>
 </html>

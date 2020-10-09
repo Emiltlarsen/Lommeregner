@@ -3,11 +3,52 @@ var valgteOperator = "";
 var laastTal = "";
 var pi = 3.1415926535897932384626433832795;
 var ligeRegnet = 0;
-var format = /./;
 var punktumSporgsmalstegn = 0
-
+var historik = [];
+var historikString = "";
 //document.getElementById("resultater").innerHTML = talIBjaelken;
 //document.getElementById("miniTal").innerHTML = laastTal + valgteOperator;
+//document.getElementById("historik").innerHTML = historik;
+
+
+class historikAfBeregninger {
+    constructor(forsteTal, andenTal, resultat, operator) {
+        this.forsteTal = forsteTal;
+        this.andenTal = andenTal;
+        this.resultat = resultat;
+        this.operator = operator;
+    }
+}
+
+var tal1 = "0";
+var tal2 = "0";
+var talResultat = "0";
+var operator1 = "0";
+var nyHistorikInput = "";
+var fuldeHistorik = "";
+
+// Opdatere historikken. Denne function køres efter hver beregning
+function updateHistory (historik) {
+    fuldeHistorik = historik[0].forsteTal + " " + historik[0].operator + " " + historik[0].andenTal + " = " + historik[0].resultat;
+    for (let i = 1; i < historik.length; i++) {
+        tal1 = historik[i].forsteTal;
+        tal2 = historik[i].andenTal;
+        talResultat = historik[i].resultat;
+        operator1 = historik[i].operator;
+        nyHistorikInput = tal1 + " " + operator1 + " " + tal2 + " = " + talResultat;
+        fuldeHistorik = fuldeHistorik + "; " + nyHistorikInput;
+    }
+    document.getElementById("historik").innerHTML = fuldeHistorik;
+}
+
+// Nulsitller historikken og kører funktionen C. Dette resultere i at lommeregneren nulstilles
+function nulstilHistorik () {
+    historik = [];
+    nyHistorikInput = "";
+    fuldeHistorik = "";
+    document.getElementById("historik").innerHTML = "/Historik Af Tidligere Beregninger Skrives Her/";
+    C();
+}
 
 
 // Knapper fra 0 til 9 (og pi)
@@ -182,7 +223,7 @@ function tastpi(){
 }
 
 
-// Nulstiller lommeregneren
+// Nulstiller igangværende beregning
 function C(){
     talIBjaelken = "0";
     ligeRegnet = 0;
@@ -192,7 +233,7 @@ function C(){
     document.getElementById("resultater").innerHTML = talIBjaelken;
 }
 
-// Sætter tal i bjælken = 0
+// Sætter tal i bjælken = 0, altså det input der er igang med at skrives nulstilles
 function CE(){
     talIBjaelken = "0";
     console.log("Sletter...");
@@ -204,28 +245,15 @@ function CE(){
     }
 }
 
-
+// Tilføljer et komma. Tjekker om der er komma i forvejen
 function komma(){
-    if (format.test(talIBjaelken)) {
-        talIBjaelken = talIBjaelken + ".";
-        console.log("Taster .");
-        document.getElementById("resultater").innerHTML = talIBjaelken;
-    } else {
+    if (talIBjaelken.includes(".")) {
         console.log("Der er allerede et punktum");
-    }
-
-
-    /*
-    if (punktumSporgsmalstegn) {
+    } else {
         talIBjaelken = talIBjaelken + ".";
         console.log("Taster .");
         document.getElementById("resultater").innerHTML = talIBjaelken;
     }
-*/
-    /*if (talIBjaelken === ".") {
-        talIBjaelken = "0.";
-        document.getElementById("resultater").innerHTML = talIBjaelken;
-    }*/
 }
 
 
@@ -263,14 +291,20 @@ function division(){
     document.getElementById("resultater").innerHTML = talIBjaelken;
 }
 function iAnden(){
+    valgteOperator = "^2";
     document.getElementById("miniTal").innerHTML = talIBjaelken + "^2 =";
+    talIBjaelken1 = talIBjaelken;
     talIBjaelken = parseFloat(talIBjaelken) * parseFloat(talIBjaelken);
-    console.log("Opløfter i anden...");
+    const tal = new historikAfBeregninger(talIBjaelken1, "...", talIBjaelken, valgteOperator);
+    console.log("Opløftet i anden giver det " + talIBjaelken);
+    console.log(tal);
+    historik.push(tal);
     ligeRegnet = 1;
     document.getElementById("resultater").innerHTML = talIBjaelken;
+    updateHistory(historik);
 }
 function iY(){
-    valgteOperator = "x^y";
+    valgteOperator = "^";
     laastTal = talIBjaelken;
     talIBjaelken = "0";
     console.log("x opløftet i y...");
@@ -280,14 +314,19 @@ function iY(){
 function kvadratRod(){
     document.getElementById("miniTal").innerHTML = "sqrt(" + talIBjaelken + ") =";
     valgteOperator = "sqrt";
+    talIBjaelken1 = talIBjaelken
     talIBjaelken = Math.sqrt(parseFloat(talIBjaelken))
-    console.log("Tager kvadratroden...");
+    const tal = new historikAfBeregninger(talIBjaelken1, "...", talIBjaelken, valgteOperator);
+    console.log("Kvadratroden er " + talIBjaelken);
+    console.log(tal);
+    historik.push(tal);
     ligeRegnet = 1;
-    document.getElementById("resultater").innerHTML = talIBjaelken;    
+    document.getElementById("resultater").innerHTML = talIBjaelken;
+    updateHistory(historik);  
 }
 function plusMinus(){
     if (talIBjaelken != 0) {
-            talIBjaelken = talIBjaelken * -1
+            talIBjaelken = talIBjaelken * -1;
             console.log("Ændrer fortegn");
             document.getElementById("resultater").innerHTML = talIBjaelken;
         } else
@@ -299,36 +338,60 @@ function plusMinus(){
 function ligMed(){
     console.log("Resultat er...");
     if (valgteOperator === "+") {
+        talIBjaelken1 = talIBjaelken;
         document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator + " " + talIBjaelken + " =";
         talIBjaelken = parseFloat(laastTal) + parseFloat(talIBjaelken);
+        const tal = new historikAfBeregninger(laastTal, talIBjaelken1, talIBjaelken, valgteOperator);
         console.log(talIBjaelken);
+        console.log(tal);
+        historik.push(tal);
+        updateHistory(historik);
     } 
     else if (valgteOperator === "-") {
         document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator + " " + talIBjaelken + " =";
+        talIBjaelken1 = talIBjaelken;
         talIBjaelken = parseFloat(laastTal) - parseFloat(talIBjaelken);
+        const tal = new historikAfBeregninger(laastTal, talIBjaelken1, talIBjaelken, valgteOperator);
         console.log(talIBjaelken);
+        console.log(tal);
+        historik.push(tal);
+        updateHistory(historik);
     } 
     else if (valgteOperator === "*") {
         document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator + " " + talIBjaelken + " =";
+        talIBjaelken1 = talIBjaelken;
         talIBjaelken = parseFloat(laastTal) * parseFloat(talIBjaelken);
+        const tal = new historikAfBeregninger(laastTal, talIBjaelken1, talIBjaelken, valgteOperator);
         console.log(talIBjaelken);
+        console.log(tal);
+        historik.push(tal);
+        updateHistory(historik);
     } 
     else if (valgteOperator === "/") {
         document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator + " " + talIBjaelken + " =";
+        talIBjaelken1 = talIBjaelken
         talIBjaelken = parseFloat(laastTal) / parseFloat(talIBjaelken);
+        const tal = new historikAfBeregninger(laastTal, talIBjaelken1, talIBjaelken, valgteOperator);
         console.log(talIBjaelken);
+        console.log(tal);
+        historik.push(tal);
+        updateHistory(historik);
     }
-    else if (valgteOperator === "x^y"){
+    else if (valgteOperator === "^"){
         document.getElementById("miniTal").innerHTML = laastTal + "^" + talIBjaelken + " =";
         var resultat = parseFloat(laastTal);
 
         for (let i = 0; i < (parseFloat(talIBjaelken)-1); i++) {
             resultat = resultat * parseFloat(laastTal);
         }
-    
+        talIBjaelken1 = talIBjaelken;
         talIBjaelken = resultat;
         
+        const tal = new historikAfBeregninger(laastTal, talIBjaelken1, talIBjaelken, valgteOperator);
         console.log(talIBjaelken)
+        console.log(tal);
+        historik.push(tal);
+        updateHistory(historik);
     }
     document.getElementById("resultater").innerHTML = talIBjaelken;
     ligeRegnet = 1;
