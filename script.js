@@ -46,7 +46,7 @@ function nulstilHistorik () {
     historik = [];
     nyHistorikInput = "";
     fuldeHistorik = "";
-    document.getElementById("historik").innerHTML = "/Historik Af Tidligere Beregninger Skrives Her/";
+    document.getElementById("historik").innerHTML = "/Historik Af Tidligere Beregninger Indskrives Automatisk Her/";
     C();
 }
 
@@ -54,10 +54,12 @@ function nulstilHistorik () {
 // Knapper fra 0 til 9 (og pi)
 function tast1(){
     console.log("Taster 1");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
-
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -71,9 +73,12 @@ function tast1(){
 }
 function tast2(){
     console.log("Taster 2");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -87,9 +92,12 @@ function tast2(){
 }
 function tast3(){
     console.log("Taster 3");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -103,9 +111,12 @@ function tast3(){
 }
 function tast4(){
     console.log("Taster 4");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -120,9 +131,12 @@ function tast4(){
 }
 function tast5(){
     console.log("Taster 5");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -137,9 +151,12 @@ function tast5(){
 }
 function tast6(){
     console.log("Taster 6");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -153,9 +170,12 @@ function tast6(){
 }
 function tast7(){
     console.log("Taster 7");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -169,9 +189,12 @@ function tast7(){
 }
 function tast8(){
     console.log("Taster 8");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -184,10 +207,12 @@ function tast8(){
     document.getElementById("resultater").innerHTML = talIBjaelken;
 }
 function tast9(){
-    console.log("Taster 9");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
@@ -201,9 +226,12 @@ function tast9(){
 }
 function tast0(){
     console.log("Taster 0");
-    if (ligeRegnet === 1){
+    if (ligeRegnet === 1 && valgteOperator === ""){
         talIBjaelken = "0";
         document.getElementById("miniTal").innerHTML = "...";
+        } else if (ligeRegnet === 1){
+            document.getElementById("miniTal").innerHTML = laastTal + " " + valgteOperator;
+            talIBjaelken = "0";
     }
 
     if(talIBjaelken === pi || talIBjaelken === "0"){
